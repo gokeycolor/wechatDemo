@@ -1,0 +1,36 @@
+/* pages/login/login.wxss */
+
+.title_text {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  line-height: 130rpx;
+  border-bottom: 1rpx solid LightGray;
+}
+
+.cell_left {
+  margin-left: 40rpx;
+  /* padding-top: 20rpx; */
+  width: 25%;
+}
+
+.cell_right {
+  margin-top: 45rpx;
+  margin-right: 20rpx;
+
+}
+
+.item {
+  margin-top: 235rpx;
+  padding: 1%;
+  height: 105rpx;
+  text-align: ce;
+  /* width: 96%; */
+}
+
+.font {
+  position: relative;
+  left: 0rpx;
+  top: 12rpx;
+  font-size: 45rpx;
+}

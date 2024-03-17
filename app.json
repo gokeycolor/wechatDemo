@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/deviceList/deviceList",
+    "pages/info/info",
+    "pages/guage/guage",
+    "pages/logo/logo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#31869B",
+    "list": [{
+        "pagePath": "pages/deviceList/deviceList",
+        "text": "Device List",
+        "iconPath": "/images/house.png",
+        "selectedIconPath": "/images/house.png"
+      },
+      {
+        "pagePath": "pages/logo/logo",
+        "text": "logo",
+        "iconPath": "/images/logo.png",
+        "selectedIconPath": "/images/logo.png"
+      },
+      {
+        "pagePath": "pages/guage/guage",
+        "text": "guage",
+        "iconPath": "/images/gauge.png",
+        "selectedIconPath": "/images/gauge.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "infomation",
+        "iconPath": "/images/information.png",
+        "selectedIconPath": "/images/information.png"
+      }
+    ]
+  }
+
+}

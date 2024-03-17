@@ -1,0 +1,12 @@
+/* components/myEcharts/myChart.wxss */
+.chart-container {
+  position: relative;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 其他样式，例如背景色、字体等 */
+}

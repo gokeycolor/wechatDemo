@@ -1,0 +1,14 @@
+<view class="title">
+  <view class="title_text">
+    <label class="cell_left">账号：</label>
+    <input class="cell_right" bindinput="getaccount" data-field="name" placeholder="请输入账号"></input>
+  </view>
+  <view class="title_text">
+    <label class="cell_left">密码：</label>
+    <input class="cell_right" bindinput="getpasswd" data-field="password" type="password" placeholder="请输入密码" />
+  </view>
+</view>
+<view class="container">
+  <button class="item" type="primary" bindtap="login">
+    <text class="font">登 录</text></button>
+</view>

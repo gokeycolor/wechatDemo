@@ -1,0 +1,61 @@
+<view class="title">
+    <picker mode="selector" range="{{onlineDevicesName}}"  bindchange="bindPickerChange" >
+      <view class = "title_text">
+        <view class="cell_left" >设备名称</view>
+        <view class="cell_right" >{{deviceName}}</view>
+      </view> 
+    </picker>
+</view>
+<view class="container" >
+    <view class="title_text">
+        <text class="cell_left">采样时间</text>
+            <input  class="cell_middle"  bindinput="handleInput" bindconfirm="interval" bindfocus="handleFocus"
+            bindblur="interval" value="{{intervalTime}}"/>
+            <text  calss="cell_right" >秒</text>
+    </view>
+
+    <view class="title_text">
+        <text class="cell_left">计数器开关</text>
+        <switch class="cell_right" id="countSwitch" checked="{{switcher}}" bindchange="switchChange" />
+    </view>
+
+    <view class="title_text">
+        <view class="cell_left">{{gaugeName[1]}}</view>   
+        <view calss="cell_middle">{{gauge[1]}}</view>     
+        <view calss="cell_right">单位</view>
+    </view>
+    <view class="title_text">
+      <view class="cell_left">{{gaugeName[2]}}</view>   
+        <view calss="cell_middle">{{gauge[2]}}</view>     
+        <view calss="cell_right">单位</view>
+    </view>
+
+    <view class="block">
+      <view  class="oneHalf ">
+        <view class="item_lable" >{{gaugeName[1]}}</view>
+        <view class="item_value">{{gauge[1]}} </view>      
+        <Chart class="smallitem"  options="{{options[1]}}" canvasId="{{canvasId[1]}}" chartId="{{chartId[1]}}" height="250rpx"></Chart>
+      </view>
+      <view class="oneHalf">
+        <view class="item_lable" >{{gaugeName[2]}}</view>
+        <view class="item_value">{{gauge[2]}} </view>
+        <Chart class="smallitem"  options="{{options[2]}}" canvasId="{{canvasId[2]}}" chartId="{{chartId[2]}}" height="250rpx"></Chart>
+      </view> 
+    </view>
+    <view class="block">
+      <view  class="oneHalf ">
+        <view class="item_lable" >{{gaugeName[3]}}</view>
+        <view class="item_value">{{gauge[3]}} </view>      
+        <Chart class="smallitem"  options="{{options[3]}}" canvasId="{{canvasId[3]}}" chartId="{{chartId[3]}}" height="250rpx"></Chart>
+      </view>
+      <view class="oneHalf">
+        <view class="item_lable" >{{gaugeName[4]}}</view>
+        <view class="item_value">{{gauge[4]}} </view>
+        <Chart class="smallitem"  options="{{options[4]}}" canvasId="{{canvasId[4]}}" chartId="{{chartId[4]}}" height="250rpx"></Chart>
+      </view> 
+    </view>
+</view>
+<view class="echart fullBlock">
+        <!-- 以下是对一个自定义组件的引用 -->
+        <Chart class="smallitem" options="{{options[0]}}" canvasId="{{canvasId[0]}}" chartId="{{chartId[0]}}" height="600rpx"/>
+</view>

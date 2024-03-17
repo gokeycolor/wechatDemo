@@ -1,0 +1,53 @@
+/* pages/readData/index.wxss */
+.title_text{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.title_padding{
+  padding-left: 30rpx;
+}
+.font {
+    font-size: 30rpx;
+}
+
+.list {
+    position: relative;
+    top: 80rpx;
+    height: 85%;
+}
+
+.block{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding-top: 5rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid LightGray;
+}
+
+.block:nth-child(even) {
+    background-color: WhiteSmoke;
+}
+
+.block:nth-child(odd) {
+    background-color: rgb(247, 247, 241);
+}
+
+.image{
+    vertical-align: middle;    
+    width: 50rpx; 
+    height: 50rpx 
+}
+
+.cell_left {
+    margin-left: 40rpx;
+    width:15%;
+}
+.cell_middle {
+    width:55%;
+}
+.cell_right {
+    margin-right: 20rpx;
+}

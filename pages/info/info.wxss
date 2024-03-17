@@ -1,0 +1,36 @@
+
+  .title_text {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    line-height: 130rpx;
+    border-bottom: 1rpx solid LightGray;
+}
+
+.fullBlock {
+  margin: 1%;
+  padding: 1%;
+  width: 96%;
+  border-radius: 25rpx;
+  background: #f8f8f8;
+  box-shadow:  6rpx 6rpx 2rpx #e6e5e5,
+              -6rpx -6rpx 2rpx #faf7f7;
+}
+
+.cell_left {
+  margin-left: 40rpx;
+  width: 65%;
+}
+.cell_middle {
+  margin-top: 45rpx;
+  text-align: right;
+  margin-right: 20rpx; 
+  padding-right: 10rpx;
+  width: 10%; 
+}
+.cell_right {
+  margin-left: 10rpx;
+  margin-right: 40rpx;
+  text-align: center;
+  width: 25%;
+}

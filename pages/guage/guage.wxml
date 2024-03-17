@@ -1,0 +1,25 @@
+
+<picker class="title" mode="selector" range="{{onlineDevicesName}}"  bindchange="bindPickerChange" >
+        <view class = "title_text">
+          <view class="cell_left" >设备名称：</view>
+          <view class="cell_right" >{{deviceName}}</view>
+        </view> 
+</picker>
+<view class="container">
+  <view class="echart">
+        <!-- 以下是对三个自定义组件的引用 -->
+            <Chart class="smallitem"  options="{{options[0]}}" canvasId="{{canvasId[0]}}" chartId="{{chartId[0]}}" height="200rpx"></Chart>
+            <Chart class="smallitem"  options="{{options[1]}}" canvasId="{{canvasId[1]}}" chartId="{{chartId[1]}}" height="200rpx"></Chart>
+            <Chart class="smallitem"  options="{{options[2]}}" canvasId="{{canvasId[2]}}" chartId="{{chartId[2]}}" height="200rpx"></Chart>
+  </view>
+  <view class="echart">
+        <!-- 以下是对两个自定义组件的引用 -->
+            <Chart class="smallitem"  options="{{options[3]}}" canvasId="{{canvasId[3]}}" chartId="{{chartId[3]}}" height="250rpx"></Chart>
+            <Chart class="smallitem"  options="{{options[4]}}" canvasId="{{canvasId[4]}}" chartId="{{chartId[4]}}" height="250rpx"></Chart>
+  </view>
+
+  <view class="echart">
+        <!-- 以下是对一个自定义组件的引用 -->
+            <Chart class="smallitem"  options="{{options[5]}}" canvasId="{{canvasId[5]}}" chartId="{{chartId[5]}}" height="500rpx" ></Chart>
+  </view>
+</view>

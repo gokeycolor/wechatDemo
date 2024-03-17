@@ -1,0 +1,25 @@
+/* pages/guage/guage.wxss */
+
+  .title_text {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    line-height: 130rpx;
+    border-bottom: 1rpx solid LightGray;
+}
+
+.cell_left {
+    margin-left: 40rpx;
+    width: 65%;
+}
+
+.cell_right {
+    margin-right: 20rpx;
+}
+
+
+.picker{
+  top:100rpx;
+  padding: 13px;
+  background-color: #FFFFFF;
+}

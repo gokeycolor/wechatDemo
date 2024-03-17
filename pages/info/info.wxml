@@ -1,0 +1,11 @@
+<picker class="title" mode="selector" range="{{onlineDevicesName}}" bindchange="bindPickerChange">
+  <view class="title_text">
+    <view class="cell_left">设备名称：</view>
+    <view class="cell_right">{{deviceName}}</view>
+  </view>
+</picker>
+<view class="container">
+  <view class="fullBlock">
+    <text>{{log}}</text>
+  </view>
+</view>

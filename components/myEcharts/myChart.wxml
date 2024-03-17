@@ -1,0 +1,6 @@
+<!--components/myEcharts/myChart.wxml-->
+<view style="height: {{height}};width:100%">
+      <view wx:if="{{isLoading}}" class="loading">加载中...</view>
+      <ec-canvas class="chart-canvas" id="{{chartId}}" canvas-id="{{canvasId}}" ec="{{ec}}" options="{{options}}" ></ec-canvas>
+</view>
+
