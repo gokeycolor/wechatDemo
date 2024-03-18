@@ -39,7 +39,7 @@ const lineParam = [
                     {name: '%', color: '#6076FF', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 1, min: 0, max: 100},
                     {name: '件', color: '#FFC560', yAxisShow: 1, yAxisIndex: 'right', splitLineShow: 0, min: 0, max: 55},
                     {name: '%', color: '#d7420b', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
-                    {name: '%', color: '#d7420b', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
+                    {name: '%', color: '#1dda0b', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
                   ]
 
 
