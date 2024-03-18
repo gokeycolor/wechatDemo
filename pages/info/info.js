@@ -34,7 +34,6 @@ Page({
         this.setData({
           log: this.data.log
         })
-
       }).catch(err => {
         console.error(err)
       })

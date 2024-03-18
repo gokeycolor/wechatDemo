@@ -34,3 +34,7 @@
   text-align: center;
   width: 25%;
 }
+
+.font {
+  font-size: 28rpx;
+}
