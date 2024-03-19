@@ -19,7 +19,7 @@
         <switch class="cell_right" id="countSwitch" checked="{{switcher}}" bindchange="switchChange" />
     </view>
 
-    <view class="title_text">
+    <!-- <view class="title_text">
         <view class="cell_left">{{gaugeName[1]}}</view>   
         <view calss="cell_middle">{{gauge[1]}}</view>     
         <view calss="cell_right">单位</view>
@@ -28,32 +28,38 @@
       <view class="cell_left">{{gaugeName[2]}}</view>   
         <view calss="cell_middle">{{gauge[2]}}</view>     
         <view calss="cell_right">单位</view>
-    </view>
+    </view> -->
 
     <view class="block">
       <view  class="oneHalf ">
         <view class="item_lable" >{{gaugeName[1]}}</view>
         <view class="item_value">{{gauge[1]}} </view>      
-        <Chart class="smallitem"  options="{{options[1]}}" canvasId="{{canvasId[1]}}" chartId="{{chartId[1]}}" height="250rpx"></Chart>
+        <Chart class="smallitem"  options="{{options[1]}}" canvasId="{{canvasId[1]}}" 
+        chartId="{{chartId[1]}}" height="250rpx"></Chart>
       </view>
       <view class="oneHalf">
         <view class="item_lable" >{{gaugeName[2]}}</view>
         <view class="item_value">{{gauge[2]}} </view>
-        <Chart class="smallitem"  options="{{options[2]}}" canvasId="{{canvasId[2]}}" chartId="{{chartId[2]}}" height="250rpx"></Chart>
+        <Chart class="smallitem"  options="{{options[2]}}" canvasId="{{canvasId[2]}}" 
+        chartId="{{chartId[2]}}" height="250rpx"></Chart>
       </view> 
     </view>
-    <view class="block">
+    <!-- 新增监控变量黏贴到下方 -->
+    <!-- <view class="block">
       <view  class="oneHalf ">
         <view class="item_lable" >{{gaugeName[3]}}</view>
         <view class="item_value">{{gauge[3]}} </view>      
-        <Chart class="smallitem"  options="{{options[3]}}" canvasId="{{canvasId[3]}}" chartId="{{chartId[3]}}" height="250rpx"></Chart>
+        <Chart class="smallitem"  options="{{options[3]}}" canvasId="{{canvasId[3]}}" 
+        chartId="{{chartId[3]}}" height="250rpx"></Chart>
       </view>
       <view class="oneHalf">
         <view class="item_lable" >{{gaugeName[4]}}</view>
         <view class="item_value">{{gauge[4]}} </view>
-        <Chart class="smallitem"  options="{{options[4]}}" canvasId="{{canvasId[4]}}" chartId="{{chartId[4]}}" height="250rpx"></Chart>
+        <Chart class="smallitem"  options="{{options[4]}}" canvasId="{{canvasId[4]}}" 
+        chartId="{{chartId[4]}}" height="250rpx"></Chart>
       </view> 
-    </view>
+    </view> -->
+    <!-- 新增监控变量黏贴到上方 --> 
 </view>
 <view class="echart fullBlock">
         <!-- 以下是对一个自定义组件的引用 -->

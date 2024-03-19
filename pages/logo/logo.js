@@ -29,17 +29,19 @@ const MAX_SIZE = 30
 const MIN_SAMPLE = 3
 const MAX_SAMPLE = 60
 const varChart = [
-                  {name: ['meter', 'count', 'meter1', 'meter3'], type: 'line'},
+                  {name: ['meter', 'count', 
+                  // 'meter1','meter3'
+                ], type: 'line'},
                   {name: 'meter', type: 'gauge'},
                   {name: 'count', type: 'gauge'},
-                  {name: 'meter1', type: 'gauge'},
-                  {name: 'meter3', type: 'gauge'},
+                  // {name: 'meter1', type: 'gauge'},
+                  // {name: 'meter3', type: 'gauge'},
                 ]
 const lineParam = [
                     {name: '%', color: '#6076FF', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 1, min: 0, max: 100},
                     {name: '件', color: '#FFC560', yAxisShow: 1, yAxisIndex: 'right', splitLineShow: 0, min: 0, max: 55},
-                    {name: '%', color: '#d7420b', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
-                    {name: '%', color: '#1dda0b', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
+                    // {name: '%', color: '#d7420b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
+                    // {name: '%', color: '#1dda0b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100},
                   ]
 
 
@@ -55,7 +57,7 @@ Page({
     chartId: [],
     options: [],
     deviceName: '', //修改为实际设备名称
-    switcher: "--",
+    switcher: '--',
     gauge: [],
     gaugeName: [],
     openedDevice: false,
@@ -133,17 +135,28 @@ Page({
   },
   // 切换开关事件处理
   switchChange(e) {
-    switch (e.currentTarget.id) {
-      case "countSwitch":
-        this.setData({
-          switcher: !this.data.switcher,
-        });
-        let msg = {
-          switch: this.data.switcher ? 1 : 0
+    let switcher = this.data.switcher
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: switcher?'确定关闭计数开关?':'确定启动计数开关?',
+      success(res) {
+        if (res.confirm) {              
+          that.data.switcher = switcher?0:1
+          console.log('confirm change switch', switcher,that.data.switcher)
+          let msg = {
+            switch: that.data.switcher ? 1 : 0
+          }
+          that.updateData(that.data.deviceName, msg)       
         }
-        this.updateData(this.data.deviceName, msg)
-        break;
-    }
+        else if ( res.cancel) {
+          that.data.switcher = switcher
+        } 
+        that.setData({
+          switcher: that.data.switcher,
+        });
+      }
+    }) 
   },
   // 更新采样时间
   interval(e) {
@@ -298,6 +311,7 @@ Page({
         x: 'left',
         top: 35,
         left: 30,
+        selectedMode: true,
         // bottom: 50,
         // left: 'center',
         // backgroundColor: 'white',
@@ -433,7 +447,7 @@ Page({
   getData(deviceName) {
     app.client.getDeviceShadow(deviceName)
       .then(res => {
-        console.log('getDeviceShadow', res)
+        // console.log('getDeviceShadow', res)
         this.setData({
           switcher: res.switch.value
         })
