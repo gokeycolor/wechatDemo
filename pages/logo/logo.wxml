@@ -13,55 +13,70 @@
             bindblur="interval" value="{{intervalTime}}"/>
             <text  calss="cell_right" >秒</text>
     </view>
-
+<!-- 监控变量 -->
+    <!-- 输出变量 -->
     <view class="title_text">
         <text class="cell_left">计数器开关</text>
-        <switch class="cell_right" id="countSwitch" checked="{{switcher}}" bindchange="switchChange" />
+        <switch class="cell_right" id="switcher" checked="{{device.switcher.value}}" bindchange="switchChange" />
     </view>
 
-    <!-- <view class="title_text">
-        <view class="cell_left">{{gaugeName[1]}}</view>   
-        <view calss="cell_middle">{{gauge[1]}}</view>     
+    <!-- 单行显示输入变量 -->
+    <view class="title_text">
+        <view class="cell_left">{{device.meter.name}}</view>   
+        <view calss="cell_middle">{{device.meter.value}}</view>     
         <view calss="cell_right">单位</view>
     </view>
     <view class="title_text">
-      <view class="cell_left">{{gaugeName[2]}}</view>   
-        <view calss="cell_middle">{{gauge[2]}}</view>     
+        <view class="cell_left">{{device.meter1.name}}</view>   
+        <view calss="cell_middle">{{device.meter1.value}}</view>     
         <view calss="cell_right">单位</view>
-    </view> -->
+    </view>
 
+    <!-- 每行显示两个输入变量 -->
     <view class="block">
       <view  class="oneHalf ">
-        <view class="item_lable" >{{gaugeName[1]}}</view>
-        <view class="item_value">{{gauge[1]}} </view>      
-        <Chart class="smallitem"  options="{{options[1]}}" canvasId="{{canvasId[1]}}" 
-        chartId="{{chartId[1]}}" height="250rpx"></Chart>
+        <view class="item_lable" >{{device.meter.name}}</view>
+        <view class="item_value">{{device.meter.value}} </view>      
       </view>
-      <view class="oneHalf">
-        <view class="item_lable" >{{gaugeName[2]}}</view>
-        <view class="item_value">{{gauge[2]}} </view>
-        <Chart class="smallitem"  options="{{options[2]}}" canvasId="{{canvasId[2]}}" 
-        chartId="{{chartId[2]}}" height="250rpx"></Chart>
+      <view  class="oneHalf ">
+        <view class="item_lable" >{{device.meter1.name}}</view>
+        <view class="item_value">{{device.meter1.value}} </view>      
+      </view>
+    </view>
+
+    <!-- 每行显示两个输入变量带echart组件 -->
+    <view class="block">
+      <view  class="oneHalf ">
+        <view class="item_lable" >{{device.meter.name}}</view>
+        <view class="item_value">{{device.meter.value}} </view>      
+        <Chart class="smallitem" options="{{device.meter2.options}}" canvasId="{{device.meter2.canvasId}}" 
+        chartId="{{device.meter2.chartId}}" height="250rpx"></Chart>
+      </view>
+      <view  class="oneHalf ">
+        <view class="item_lable" >{{device.count.name}}</view>
+        <view class="item_value">{{device.count.value}} </view>      
+        <Chart class="smallitem" options="{{device.count.options}}" canvasId="{{device.count.canvasId}}" 
+        chartId="{{device.trend_count.chartId}}" height="250rpx"></Chart>
       </view> 
     </view>
-    <!-- 新增监控变量黏贴到下方 -->
-    <!-- <view class="block">
+    <view class="block">
       <view  class="oneHalf ">
-        <view class="item_lable" >{{gaugeName[3]}}</view>
-        <view class="item_value">{{gauge[3]}} </view>      
-        <Chart class="smallitem"  options="{{options[3]}}" canvasId="{{canvasId[3]}}" 
-        chartId="{{chartId[3]}}" height="250rpx"></Chart>
+        <view class="item_lable" >{{device.meter.name}}</view>
+        <view class="item_value">{{device.meter.value}} </view>      
+        <Chart class="smallitem" options="{{device.trend_meter.options}}" canvasId="{{device.trend_meter.canvasId}}" 
+        chartId="{{device.trend_meter.chartId}}" height="250rpx"></Chart>
       </view>
-      <view class="oneHalf">
-        <view class="item_lable" >{{gaugeName[4]}}</view>
-        <view class="item_value">{{gauge[4]}} </view>
-        <Chart class="smallitem"  options="{{options[4]}}" canvasId="{{canvasId[4]}}" 
-        chartId="{{chartId[4]}}" height="250rpx"></Chart>
+      <view  class="oneHalf ">
+        <view class="item_lable" >{{device.count.name}}</view>
+        <view class="item_value">{{device.count.value}} </view>      
+        <Chart class="smallitem" options="{{device.trend_count.options}}" canvasId="{{device.trend_count.canvasId}}" 
+        chartId="{{device.trend_count.chartId}}" height="250rpx"></Chart>
       </view> 
-    </view> -->
-    <!-- 新增监控变量黏贴到上方 --> 
-</view>
-<view class="echart fullBlock">
-        <!-- 以下是对一个自定义组件的引用 -->
-        <Chart class="smallitem" options="{{options[0]}}" canvasId="{{canvasId[0]}}" chartId="{{chartId[0]}}" height="600rpx"/>
+    </view>
+    
+    <!-- 每行显示一个echart组件 -->
+    <view class="echart fullBlock">
+            <!-- 以下是对一个自定义组件的引用 -->
+            <Chart class="smallitem" options="{{device.trend1.options}}" canvasId="{{device.trend1.canvasId}}" chartId="{{device.trend1.chartId}}" height="600rpx"/>
+    </view>
 </view>

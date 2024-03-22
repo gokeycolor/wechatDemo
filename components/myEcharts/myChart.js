@@ -45,8 +45,12 @@ Component({
    * 组件生命周期
    */
   lifetimes: {
+    created()
+    {
+      setTimeout(()=>{this.initChart()},100)
+    },
     ready() {
-      console.log('onComponentsReady');
+      console.log('onComponentsReady',this.data.isloading);
       // this.initChart();
     },
     detached(e) {
@@ -63,9 +67,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    getData() {
-      setTimeout(()=>{this.initChart()},100) ;
-    },
     initChart() {
       this.selectComponent('#' + this.data.chartId).init((canvas, width, height, dpr) => {
         let chart = echarts.init(canvas, null, {
@@ -86,7 +87,8 @@ Component({
       if (this.data.ec && this.data.ec.chart) {
         this.data.ec.chart.setOption(newOption, true); // 第二个参数 true 表示不合并，替换现有选项
       } else {
-        this.getData();
+        // this.initChart()
+      setTimeout(()=>{this.initChart()},10) ;
       }
     }
   }
