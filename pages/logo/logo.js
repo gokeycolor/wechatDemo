@@ -1,12 +1,7 @@
 // pages/logo/logo.js
 // const fifoBUffer = require('../../utils/fifo');
 const { initeChartObjects } = require('../../utils/options');
-const {
-  isEmpty,
-  // findNames,
-  // hexToRGBA,
-  // countTypes
-} = require('../../utils/comm');
+const { isEmpty } = require('../../utils/comm');
 const app = getApp()
 
 const MAX_SIZE = 30 //趋势图显示的最大点数
@@ -31,10 +26,10 @@ const device = {
     property: [
       { id: 'meter', params: { name: '%', color: '#6076FF', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 1, min: 0, max: 100 } },
       { id: 'count', params: { name: 'pic', color: '#FFC560', yAxisShow: 1, yAxisIndex: 'right', splitLineShow: 0, min: 0, max: 55 } },
-      { id: 'meter1', params: {name: '%', color: '#d7420b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100} },
-      { id: 'meter3', params: {name: '%', color: '#1dda0b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100} },
+      { id: 'meter1', params: { name: '%', color: '#d7420b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
+      { id: 'meter3', params: { name: '%', color: '#1dda0b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
     ],
-    global: { title: '趋势图' ,titleShow:1, xAxisShow: 1, legendShow: 1 },
+    global: { title: '趋势图', titleShow: 1, xAxisShow: 1, legendShow: 1 },
     type: 'line'
   },
 }
@@ -48,7 +43,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    deviceName: '', 
+    deviceName: '',
     intervalTime: 5,
     onlineDevicesName: [],
     device: null,
@@ -236,8 +231,15 @@ Page({
           }
         }
         // console.log('update Page', device)
+        this.data.onlineDevicesName = app.onlineDevices.map(item => item.name);
+        this.data.deviceName = app.currentDevice.name
+        // console.log(this.data.onlineDevicesName, this.data.deviceName)
+
         this.setData({
-          device: this.data.device
+          device: this.data.device,
+          onlineDevicesName: this.data.onlineDevicesName,
+          deviceName: this.data.deviceName,
+          intervalTime: this.data.intervalTime
         })
         wx.hideLoading()
       }).catch(err => {
@@ -249,11 +251,11 @@ Page({
     for (const key in device) {
       const chart = device[key];
       if (chart.type === 'line') {
-        for(let i=0; i < chart.data.length; i++){
+        for (let i = 0; i < chart.data.length; i++) {
           chart.data[i].clear()
           chart.options.series[i].data.length = 0
           chart.options.series[i].data = []
-      }
+        }
       }
     }
   },
@@ -279,18 +281,9 @@ Page({
     }
     if (app.needUpdate) {
       this.destroy(this.timer)
-      this.data.onlineDevicesName = app.onlineDevices.map(item => item.name);
-      this.data.deviceName = app.currentDevice.name
-      //this.data.options[0].title.text = `LOGO! 设备${this.data.deviceName}趋势图`
       app.needUpdate = false
     }
-    this.setData({
-      device: this.data.device,
-      onlineDevicesName: this.data.onlineDevicesName,
-      deviceName: this.data.deviceName,
-      intervalTime: this.data.intervalTime
-    })
-    // console.log(this.data.onlineDevicesName,this.data.deviceName)
+    this.data.deviceName = app.currentDevice.name
     this.getData(this.data.deviceName, this.data.device)
     this.timer = setInterval(() => {
       this.getData(this.data.deviceName, this.data.device)

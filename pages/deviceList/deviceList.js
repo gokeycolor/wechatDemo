@@ -7,7 +7,7 @@ Page({
   data: {
     devices: [],
     total: 0,
-    array: ['显示所有设备', '仅显示 ONLINE 设备', '仅显示 OFFLINE 设备','仅显示 UNACTIVE 设备', '仅显示 DISABLE 设备'],
+    array: ['显示所有设备', '仅显示 ONLINE 设备', '仅显示 OFFLINE 设备', '仅显示 UNACTIVE 设备', '仅显示 DISABLE 设备'],
     index: 0,
     objectArray: ['ALL', 'ONLINE', 'OFFLINE', 'UNACTIVE', 'DISABLE'],
   },
@@ -15,7 +15,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad(options) {
     wx.setNavigationBarTitle({
       title: "设备列表",
     })
@@ -36,13 +36,15 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-    this.destory(this.timer)
+    console.log('onHide')
+    // this.destory(this.timer)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
+    console.log('onUnload')
     this.destory(this.timer)
   },
 
@@ -106,12 +108,33 @@ Page({
           total: filteredList ? filteredList.length : '--'
         });
         app.onlineDevices = filteredList.filter(item => item.status === 'ONLINE')
-        if ((typeof app.currentDevice === 'undefined' || app.currentDevice === null) && app.onlineDevices.length !== 0) {
-          app.currentDevice = app.onlineDevices[0]
-          app.needUpdate = true
+        if (app.onlineDevices.length === 0) {
+          app.currentDevice = null
         }
+        else {
+          if (typeof app.currentDevice === 'undefined' || app.currentDevice === null) {
+            app.currentDevice = app.onlineDevices[0]
+            app.needUpdate = true
+          }
+          const pages = getCurrentPages();
+          // console.log('pages', pages[0].route, app.currentDevice, app.onlineDevices)
+          if (!app.onlineDevices.some(item => item.name == app.currentDevice.name) && pages[0].route !== 'pages/deviceList/deviceList') {
+            wx.showModal({
+              title: '提示',
+              content: `${app.currentDevice.name}设备离线，返回设备列表`,
+              success(res) {
+                if (res.confirm) {
+                  wx.switchTab({
+                    url: "/pages/deviceList/deviceList",                    
+                  });
+                  app.currentDevice = null
+                }
+              }
+            })
+          }
 
-        console.log(app.currentDevice)
+        }
+        // console.log(app.currentDevice, app.onlineDevices)
       }).catch(err => {
         console.error(err);
         this.setData({
