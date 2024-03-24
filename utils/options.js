@@ -301,7 +301,6 @@ function initeChartObjects(charts, buffsize) {
           options.series.push({
             ...series
           })
-          // options.series[i].data = []
           options.series[i].name = chart.property[i].id
           trendSeriesParams(options, i, chart.property[i].params)
         }
@@ -317,7 +316,7 @@ function initeChartObjects(charts, buffsize) {
     chart.name = chart.property[0].id
     // 返回更新后的字典对象  
   }
-  console.log('init',charts)
+  // console.log('init',charts)
   return charts;
 }
 

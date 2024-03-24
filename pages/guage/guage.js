@@ -464,6 +464,7 @@ Page({
           },
         },
         type: 'gauge',
+        center:['50%','20%'],
         detail: {
           formatter: '{value}'
         },

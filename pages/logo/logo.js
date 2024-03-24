@@ -7,15 +7,20 @@ const app = getApp()
 const MAX_SIZE = 30 //趋势图显示的最大点数
 const MIN_SAMPLE = 3 //最小采用时间，单位s
 const MAX_SAMPLE = 60 //MAX_SAMPLE: 最大采用时间，单位s
+/*
+device 定义了页面需要监控的所有变量
+device 字典类型，每个键值对应wxml页面绑定数据名
+
+*/
 
 const device = {
-  switcher: { property: [{ id: 'switch' },], type: 'value' },
-  motorSwitch: { property: [{ id: 'motorSwitch' },], type: 'value' },
-  motorStatus: { property: [{ id: 'motorStatus' },], type: 'value' },
-  meter: { property: [{ id: 'meter' },], type: 'value' },
-  meter1: { property: [{ id: 'meter1' },], type: 'value' },
-  meter2: { property: [{ id: 'meter', params: {} },], type: 'gauge' },
-  count: { property: [{ id: 'count', params: {} },], type: 'gauge' },
+  switcher: { property: [{ id: 'switch' },], name:'',value:'', type: 'value' },
+  motorSwitch: { property: [{ id: 'motorSwitch' },], name:'',value:'',type: 'value' },
+  motorStatus: { property: [{ id: 'motorStatus' },], name:'',value:'',type: 'value' },
+  meter: { property: [{ id: 'meter' },], name:'',value:'',type: 'value' },
+  meter1: { property: [{ id: 'meter1' },],name:'',value:'', type: 'value' },
+  meter2: { property: [{ id: 'meter', params: {} },],name:'',value:'', type: 'gauge' },
+  count: { property: [{ id: 'count', params: {} },],name:'',value:'', type: 'gauge' },
   trend_meter: {
     property: [{ id: 'meter', params: { name: '%', color: '#6076FF', yAxisShow: 0, 
                  yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },],
