@@ -10,17 +10,21 @@ const MAX_SAMPLE = 60 //MAX_SAMPLE: 最大采用时间，单位s
 
 const device = {
   switcher: { property: [{ id: 'switch' },], type: 'value' },
+  motorSwitch: { property: [{ id: 'motorSwitch' },], type: 'value' },
+  motorStatus: { property: [{ id: 'motorStatus' },], type: 'value' },
   meter: { property: [{ id: 'meter' },], type: 'value' },
   meter1: { property: [{ id: 'meter1' },], type: 'value' },
   meter2: { property: [{ id: 'meter', params: {} },], type: 'gauge' },
   count: { property: [{ id: 'count', params: {} },], type: 'gauge' },
   trend_meter: {
-    property: [{ id: 'meter', params: { name: '%', color: '#6076FF', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },],
-    global: { titleShow: 0, xAxisShow: 0, legendShow: 0 }, type: 'line'
+    property: [{ id: 'meter', params: { name: '%', color: '#6076FF', yAxisShow: 0, 
+                 yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },],
+    global: { titleShow: 0, xAxisShow: 0, legendShow: 0, gridBottom: '5rpx',gridTop:'0rpx' }, 
+    type: 'line'
   },
   trend_count: {
     property: [{ id: 'count', params: { name: '%', color: '#FFC560', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 55 } },],
-    global: { titleShow: 0, xAxisShow: 0, legendShow: 0 }, type: 'line'
+    global: { titleShow: 0, xAxisShow: 0, legendShow: 0, gridBottom: '5rpx',gridTop:'0rpx' }, type: 'line'
   },
   trend1: {
     property: [
@@ -29,7 +33,7 @@ const device = {
       { id: 'meter1', params: { name: '%', color: '#d7420b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
       { id: 'meter3', params: { name: '%', color: '#1dda0b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
     ],
-    global: { title: '趋势图', titleShow: 1, xAxisShow: 1, legendShow: 1 },
+    global: { title: '趋势图', titleShow: 1, xAxisShow: 1, legendShow: 1, gridBottom: '80rpx',gridTop:'50rpx' },
     type: 'line'
   },
 }
@@ -114,8 +118,10 @@ Page({
     }
   },
   // 切换开关事件处理
-  switchChange(e) {
+  outputChange(e) {
     let switcher = !e.detail.value
+    let name = e.currentTarget.id
+    console.log(e)
     if (hasClick) {
       return
     }
@@ -123,13 +129,12 @@ Page({
     var that = this
     wx.showModal({
       title: '提示',
-      content: switcher ? '确定关闭计数开关?' : '确定启动计数开关?',
+      content: switcher ? `确定停止 ${name} ?` : `确定启动 ${name} ?`,
       success(res) {
         if (res.confirm) {
           that.data.switcher = switcher ? 0 : 1
-          let msg = {
-            switch: that.data.switcher ? 1 : 0
-          }
+          let msg = {}
+          msg[name] = that.data.switcher ? 1 : 0
           that.updateData(that.data.deviceName, msg)
         }
         hasClick = false
@@ -233,8 +238,6 @@ Page({
         // console.log('update Page', device)
         this.data.onlineDevicesName = app.onlineDevices.map(item => item.name);
         this.data.deviceName = app.currentDevice.name
-        // console.log(this.data.onlineDevicesName, this.data.deviceName)
-
         this.setData({
           device: this.data.device,
           onlineDevicesName: this.data.onlineDevicesName,

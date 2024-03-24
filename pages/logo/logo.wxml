@@ -17,10 +17,19 @@
     <!-- 输出变量 -->
     <view class="title_text">
         <text class="cell_left">计数器开关</text>
-        <switch class="cell_right" id="switcher" checked="{{device.switcher.value}}" bindchange="switchChange" />
+        <switch class="cell_right" id="{{device.switcher.name}}" checked="{{device.switcher.value}}" bindchange="outputChange" />
+    </view>
+    <view class="title_text">
+        <text class="cell_left">电机开关</text>
+        <switch class="cell_right" id="{{device.motorSwitch.name}}" checked="{{device.motorSwitch.value}}" bindchange="outputChange" />
     </view>
 
     <!-- 单行显示输入变量 -->
+    <view class="title_text">
+        <view class="cell_left">{{device.motorStatus.name}}</view>   
+        <view calss="cell_middle">{{device.motorStatus.value === 1 ? '运行' : '停止' }}</view>     
+        <!-- <view calss="cell_right">单位</view> -->
+    </view>
     <view class="title_text">
         <view class="cell_left">{{device.meter.name}}</view>   
         <view calss="cell_middle">{{device.meter.value}}</view>     
@@ -47,16 +56,16 @@
     <!-- 每行显示两个输入变量带echart组件 -->
     <view class="block">
       <view  class="oneHalf ">
-        <view class="item_lable" >{{device.meter.name}}</view>
-        <view class="item_value">{{device.meter.value}} </view>      
+        <view class="item_lable" >{{device.meter2.name}}</view>
+        <view class="item_value">{{device.meter2.value}} </view>      
         <Chart class="smallitem" options="{{device.meter2.options}}" canvasId="{{device.meter2.canvasId}}" 
-        chartId="{{device.meter2.chartId}}" height="250rpx"></Chart>
+        chartId="{{device.meter2.chartId}}" height="250rpx" />
       </view>
       <view  class="oneHalf ">
         <view class="item_lable" >{{device.count.name}}</view>
         <view class="item_value">{{device.count.value}} </view>      
         <Chart class="smallitem" options="{{device.count.options}}" canvasId="{{device.count.canvasId}}" 
-        chartId="{{device.trend_count.chartId}}" height="250rpx"></Chart>
+        chartId="{{device.count.chartId}}" height="250rpx"></Chart>
       </view> 
     </view>
     <view class="block">

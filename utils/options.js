@@ -111,9 +111,8 @@ function trendTemplate() {
       // z: 100
     },
     grid: {
-      top: '50rpx',
+      top: '5rpx',
       bottom: '1%',
-      show: true,
       borderWidth:'0'
       // containLabel: true
     },
@@ -271,6 +270,8 @@ function trendParams(options,  param) {
   setIfDefined(options.title, 'show', param.titleShow);
   setIfDefined(options.xAxis, 'show', param.xAxisShow);
   setIfDefined(options.legend, 'show', param.legendShow);
+  setIfDefined(options.grid, 'bottom', param.gridBottom);
+  setIfDefined(options.grid, 'top', param.gridTop);
 }
 function initeChartObjects(charts, buffsize) {
   // 遍历字典对象
