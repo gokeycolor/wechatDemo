@@ -1,8 +1,8 @@
 
     <picker class="title font title_padding" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
         <view class="title_text">
-            <view class="cell_middle" >{{array[index]}}</view>
-            <view class="cell_right">总数：{{total}}</view>
+            <view class="title_left" >{{array[index]}}</view>
+            <view class="title_right">总数：{{total}}</view>
         </view>
     </picker>
     <scroll-view class="list">

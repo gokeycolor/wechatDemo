@@ -15,7 +15,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  onLoad() {
     wx.setNavigationBarTitle({
       title: "设备列表",
     })
@@ -106,7 +106,7 @@ Page({
         this.setData({
           devices: filteredList ? filteredList : null,
           total: filteredList ? filteredList.length : '--'
-        });
+        });        
         app.onlineDevices = filteredList.filter(item => item.status === 'ONLINE')
         if (app.onlineDevices.length === 0) {
           app.currentDevice = null
@@ -132,8 +132,8 @@ Page({
               }
             })
           }
-
         }
+        console.log('devices', this.data.devices)
         // console.log(app.currentDevice, app.onlineDevices)
       }).catch(err => {
         console.error(err);

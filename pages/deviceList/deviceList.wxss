@@ -46,8 +46,19 @@
     width:15%;
 }
 .cell_middle {
-    width:55%;
+    text-align: center;
+    width:30%;
 }
 .cell_right {
-    margin-right: 20rpx;
+    width:55%;
+    text-align: center;
+    margin-right: 5rpx;
+}
+
+.title_left {
+  width:55%;
+}
+
+.title_right {
+  margin-right: 20rpx;
 }
