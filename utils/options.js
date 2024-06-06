@@ -273,6 +273,8 @@ function trendParams(options,  param) {
   setIfDefined(options.grid, 'bottom', param.gridBottom);
   setIfDefined(options.grid, 'top', param.gridTop);
 }
+
+// 初始化chart对象
 function initeChartObjects(charts, buffsize) {
   // 遍历字典对象
   for (const key in charts) {

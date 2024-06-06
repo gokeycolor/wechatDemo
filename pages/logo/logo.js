@@ -21,6 +21,7 @@ const device = {
   meter1: { property: [{ id: 'meter1' },],name:'',value:'', type: 'value' },
   meter2: { property: [{ id: 'meter', params: {} },],name:'',value:'', type: 'gauge' },
   count: { property: [{ id: 'count', params: {} },],name:'',value:'', type: 'gauge' },
+  meter5: { property: [{ id: 'meter5', params: {} },],name:'',value:'', type: 'gauge' },
   trend_meter: {
     property: [{ id: 'meter', params: { name: '%', color: '#6076FF', yAxisShow: 0, 
                  yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },],
@@ -35,8 +36,8 @@ const device = {
     property: [
       { id: 'meter', params: { name: '%', color: '#6076FF', yAxisShow: 1, yAxisIndex: 'left', splitLineShow: 1, min: 0, max: 100 } },
       { id: 'count', params: { name: 'pic', color: '#FFC560', yAxisShow: 1, yAxisIndex: 'right', splitLineShow: 0, min: 0, max: 55 } },
-      { id: 'meter1', params: { name: '%', color: '#d7420b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
-      { id: 'meter3', params: { name: '%', color: '#1dda0b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
+      { id: 'meter2', params: { name: '%', color: '#d7420b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
+      { id: 'meter5', params: { name: '%', color: '#1dda0b', yAxisShow: 0, yAxisIndex: 'left', splitLineShow: 0, min: 0, max: 100 } },
     ],
     global: { title: '趋势图', titleShow: 1, xAxisShow: 1, legendShow: 1, gridBottom: '80rpx',gridTop:'50rpx' },
     type: 'line'

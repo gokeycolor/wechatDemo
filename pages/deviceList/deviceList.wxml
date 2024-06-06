@@ -6,7 +6,7 @@
         </view>
     </picker>
     <scroll-view class="list">
-        <view class="block font" wx:for="{{devices}}" wx:for-item="item" wx:key="id" bindtap="onDeviceTap" data-id="{{item}}">
+        <view class="block font" wx:for="{{devices}}" wx:for-item="item" wx:key="name" bindtap="onDeviceTap" data-id="{{item}}">
             <view class="cell_left" ><image class="image" src='../../images/{{item.status}}.png'></image></view>
             <view class="cell_middle">{{item.name}} </view>
             <view class="cell_right">{{item.status}} </view>

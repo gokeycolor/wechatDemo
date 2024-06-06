@@ -1,13 +1,13 @@
 <view class="title">
     <picker mode="selector" range="{{onlineDevicesName}}"  bindchange="bindPickerChange" >
-      <view class = "title_text">
+      <view class = "single_line">
         <view class="cell_left" >设备名称</view>
         <view class="cell_right" >{{deviceName}}</view>
       </view> 
     </picker>
 </view>
 <view class="container" >
-    <view class="title_text">
+    <view class="single_line">
         <text class="cell_left">采样时间</text>
             <input  class="cell_middle"  bindinput="handleInput" bindconfirm="interval" bindfocus="handleFocus"
             bindblur="interval" value="{{intervalTime}}"/>
@@ -15,30 +15,35 @@
     </view>
 <!-- 监控变量 -->
     <!-- 输出变量 -->
-    <view class="title_text">
+    <view class="single_line">
         <text class="cell_left">计数器开关</text>
         <switch class="cell_right" id="{{device.switcher.name}}" checked="{{device.switcher.value}}" bindchange="outputChange" />
     </view>
-    <view class="title_text">
+    <view class="single_line">
         <text class="cell_left">电机开关</text>
         <switch class="cell_right" id="{{device.motorSwitch.name}}" checked="{{device.motorSwitch.value}}" bindchange="outputChange" />
     </view>
 
     <!-- 单行显示输入变量 -->
-    <view class="title_text">
+    <view class="single_line">
         <view class="cell_left">{{device.motorStatus.name}}</view>   
         <view calss="cell_middle">{{device.motorStatus.value === 1 ? '运行' : '停止' }}</view>     
         <!-- <view calss="cell_right">单位</view> -->
     </view>
-    <view class="title_text">
+    <view class="single_line">
         <view class="cell_left">{{device.meter.name}}</view>   
         <view calss="cell_middle">{{device.meter.value}}</view>     
         <view calss="cell_right">单位</view>
     </view>
-    <view class="title_text">
-        <view class="cell_left">{{device.meter1.name}}</view>   
-        <view calss="cell_middle">{{device.meter1.value}}</view>     
-        <view calss="cell_right">单位</view>
+    <view class="single_line">
+        <view class="cell_left">{{device.count.name}}</view>   
+        <view calss="cell_middle">{{device.count.value}}</view>     
+        <view calss="cell_right">摄氏度</view>
+    </view>
+    <view class="single_line">
+        <view class="cell_left">{{device.meter5.name}}</view>   
+        <view calss="cell_middle">{{device.meter5.value}}</view>     
+        <view calss="cell_right">摄氏度</view>
     </view>
 
     <!-- 每行显示两个输入变量 -->
@@ -48,8 +53,8 @@
         <view class="item_value">{{device.meter.value}} </view>      
       </view>
       <view  class="oneHalf ">
-        <view class="item_lable" >{{device.meter1.name}}</view>
-        <view class="item_value">{{device.meter1.value}} </view>      
+        <view class="item_lable" >{{device.count.name}}</view>
+        <view class="item_value">{{device.count.value}} </view>      
       </view>
     </view>
 
@@ -68,6 +73,7 @@
         chartId="{{device.count.chartId}}" height="250rpx"></Chart>
       </view> 
     </view>
+
     <view class="block">
       <view  class="oneHalf ">
         <view class="item_lable" >{{device.meter.name}}</view>

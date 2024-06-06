@@ -79,6 +79,7 @@ Page({
 
   onDeviceTap: function (e) {
     const device = e.currentTarget.dataset.id;
+    console.log(device)
     if (device.status === 'ONLINE') {
       if (app.currentDevice !== device) {
         app.currentDevice = device
@@ -133,7 +134,7 @@ Page({
             })
           }
         }
-        console.log('devices', this.data.devices)
+        // console.log('devices', this.data.devices)
         // console.log(app.currentDevice, app.onlineDevices)
       }).catch(err => {
         console.error(err);

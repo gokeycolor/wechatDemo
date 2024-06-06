@@ -13,526 +13,528 @@ Page({
   data: {
     canvasId: [],
     chartId: [],
-    options: [{
-      backgroundColor: "#ffffff",
-      series: [{
-        name: '业务指标',
-        zlevel: -1,
-        // 当前进度条
-        progress: {
-          show: false,
-          width: 5,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 5,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 0.5
+    // 仪表盘样式
+    options: [
+      {
+        backgroundColor: "#ffffff",
+        series: [{
+          name: '业务指标',
+          zlevel: -1,
+          // 当前进度条
+          progress: {
+            show: false,
+            width: 5,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 5,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 0.5
+            },
           },
-        },
-        // echart类型
-        type: 'gauge',
-        // 仪表盘详情   
-        detail: {
-          formatter: '{value}'
-        },
-        // 轴线配置
-        axisLine: {
-          // 轴线样式
-          lineStyle: {
-            width: 10,
-            color: [
-              [1.0, 'red']
-            ],
-            opacity: 0.5
-          },
-          show: true
-        },
-        // 刻度样式
-        axisTick: {
-          show: false,
-          distance: -10,
-          splitNumber: 10
-        },
-        // 分隔线样式
-        splitLine: {
-          show: true,
-          distance: -10,
-          length: '10%',
-          lineStyle: {
-            width: 1
-          }
-        },
-        //  刻度标签
-        axisLabel: {
-          show: false,
-          distance: -5,
-          textStyle: {
-            fontSize: 8
-          }
-        },
-        // 仪表盘半径
-        radius: '100%',
-        // 仪表盘起始角度
-        startAngle: -150,
-        endAngle: 90,
-        //  指针
-        pointer: {
-          showAbove: false,
-          length: '80%',
-          width: 3,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 100,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 1
-          }
-        },
-        // 系列中的数据内容数组
-        data: [{
-          title: {
-            show: true,
-            offsetCenter: [0, '-20%'],
-            fontSize: 10
-          },
-          value: '30',
-          name: 'meter',
+          // echart类型
+          type: 'gauge',
+          // 仪表盘详情   
           detail: {
+            formatter: '{value}'
+          },
+          // 轴线配置
+          axisLine: {
+            // 轴线样式
+            lineStyle: {
+              width: 10,
+              color: [
+                [1.0, 'red']
+              ],
+              opacity: 0.5
+            },
+            show: true
+          },
+          // 刻度样式
+          axisTick: {
+            show: false,
+            distance: -10,
+            splitNumber: 10
+          },
+          // 分隔线样式
+          splitLine: {
             show: true,
-            fontSize: 15,
-            width: 25,
-            height: 15,
-            backgroundColor: 'transparent'
-          }
+            distance: -10,
+            length: '10%',
+            lineStyle: {
+              width: 1
+            }
+          },
+          //  刻度标签
+          axisLabel: {
+            show: false,
+            distance: -5,
+            textStyle: {
+              fontSize: 8
+            }
+          },
+          // 仪表盘半径
+          radius: '100%',
+          // 仪表盘起始角度
+          startAngle: -150,
+          endAngle: 90,
+          //  指针
+          pointer: {
+            showAbove: false,
+            length: '80%',
+            width: 3,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 100,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 1
+            }
+          },
+          // 系列中的数据内容数组
+          data: [{
+            title: {
+              show: true,
+              offsetCenter: [0, '-20%'],
+              fontSize: 10
+            },
+            value: '30',
+            name: 'meter',
+            detail: {
+              show: true,
+              fontSize: 15,
+              width: 25,
+              height: 15,
+              backgroundColor: 'transparent'
+            }
+          }]
         }]
-      }]
-    },
-    {
-      backgroundColor: "#ffffff",
-      series: [{
-        name: '业务指标',
-        zlevel: -1,
-        progress: {
-          show: false,
-          width: 5,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 5,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 0.5
+      },
+      {
+        backgroundColor: "#ffffff",
+        series: [{
+          name: '业务指标',
+          zlevel: -1,
+          progress: {
+            show: false,
+            width: 5,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 5,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 0.5
+            },
           },
-        },
-        type: 'gauge',
-        detail: {
-          formatter: '{value}'
-        },
-        axisLine: {
-          lineStyle: {
-            width: 25,
-            color: [
-              [0.1, '#E8E8E8'],
-              [0.2, '#CFCFCF'],
-              [0.3, '#B5B5B5'],
-              [0.4, '#9C9C9C'],
-              [0.5, '#828282'],
-              [0.6, '#696969'],
-              [0.7, '#4F4F4F'],
-              [0.8, '#363636'],
-              [0.9, '#1C1C1C'],
-              [1.0, '#1C1C1C']
-            ],
-            opacity: 0.7
-          },
-          show: true
-        },
-        axisTick: {
-          show: false
-        },
-        splitLine: {
-          show: false,
-          distance: 6,
-          length: '10%',
-          lineStyle: {
-            width: 1
-          }
-        },
-        axisLabel: {
-          show: false,
-          distance: -10,
-          textStyle: {
-            fontSize: 10
-          }
-        },
-        radius: '100%',
-        startAngle: 0,
-        endAngle: 180,
-        pointer: {
-          showAbove: true,
-          length: '80%',
-          width: 3,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 100,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 1
-          }
-        },
-        data: [{
-          title: {
-            show: true,
-            offsetCenter: [0, '-20%'],
-            fontSize: 10
-          },
-          value: '30',
-          name: 'meter',
+          type: 'gauge',
           detail: {
-            show: true,
-            fontSize: 15,
-            width: 25,
-            height: 15,
-            backgroundColor: 'transparent'
-          }
+            formatter: '{value}'
+          },
+          axisLine: {
+            lineStyle: {
+              width: 25,
+              color: [
+                [0.1, '#E8E8E8'],
+                [0.2, '#CFCFCF'],
+                [0.3, '#B5B5B5'],
+                [0.4, '#9C9C9C'],
+                [0.5, '#828282'],
+                [0.6, '#696969'],
+                [0.7, '#4F4F4F'],
+                [0.8, '#363636'],
+                [0.9, '#1C1C1C'],
+                [1.0, '#1C1C1C']
+              ],
+              opacity: 0.7
+            },
+            show: true
+          },
+          axisTick: {
+            show: false
+          },
+          splitLine: {
+            show: false,
+            distance: 6,
+            length: '10%',
+            lineStyle: {
+              width: 1
+            }
+          },
+          axisLabel: {
+            show: false,
+            distance: -10,
+            textStyle: {
+              fontSize: 10
+            }
+          },
+          radius: '100%',
+          startAngle: 0,
+          endAngle: 180,
+          pointer: {
+            showAbove: true,
+            length: '80%',
+            width: 3,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 100,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 1
+            }
+          },
+          data: [{
+            title: {
+              show: true,
+              offsetCenter: [0, '-20%'],
+              fontSize: 10
+            },
+            value: '30',
+            name: 'meter',
+            detail: {
+              show: true,
+              fontSize: 15,
+              width: 25,
+              height: 15,
+              backgroundColor: 'transparent'
+            }
+          }]
         }]
-      }]
-    },
-    {
-      backgroundColor: "#ffffff",
-      series: [{
-        name: '业务指标',
-        zlevel: -1,
-        progress: {
-          show: false,
-          width: 5,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 5,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 0.5
+      },
+      {
+        backgroundColor: "#ffffff",
+        series: [{
+          name: '业务指标',
+          zlevel: -1,
+          progress: {
+            show: false,
+            width: 5,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 5,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 0.5
+            },
           },
-        },
-        type: 'gauge',
-        detail: {
-          formatter: '{value}'
-        },
-        axisLine: {
-          lineStyle: {
-            width: 25,
-            color: [
-              [0.2, 'red'],
-              [1.0, 'green']
-            ],
-            opacity: 0.5
-          },
-          show: true
-        },
-        axisTick: {
-          show: false
-        },
-        splitLine: {
-          show: false,
-          distance: 6,
-          length: '10%',
-          lineStyle: {
-            width: 1
-          }
-        },
-        axisLabel: {
-          show: false,
-          distance: -10,
-          textStyle: {
-            fontSize: 10
-          }
-        },
-        radius: '100%',
-        startAngle: 0,
-        endAngle: 90,
-        pointer: {
-          showAbove: true,
-          length: '80%',
-          width: 3,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 100,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 1
-          }
-        },
-        data: [{
-          title: {
-            show: true,
-            offsetCenter: [0, '-20%'],
-            fontSize: 10
-          },
-          value: '30',
-          name: 'meter',
+          type: 'gauge',
           detail: {
-            show: true,
-            fontSize: 15,
-            width: 25,
-            height: 15,
-            backgroundColor: 'transparent'
-          }
+            formatter: '{value}'
+          },
+          axisLine: {
+            lineStyle: {
+              width: 25,
+              color: [
+                [0.2, 'red'],
+                [1.0, 'green']
+              ],
+              opacity: 0.5
+            },
+            show: true
+          },
+          axisTick: {
+            show: false
+          },
+          splitLine: {
+            show: false,
+            distance: 6,
+            length: '10%',
+            lineStyle: {
+              width: 1
+            }
+          },
+          axisLabel: {
+            show: false,
+            distance: -10,
+            textStyle: {
+              fontSize: 10
+            }
+          },
+          radius: '100%',
+          startAngle: 0,
+          endAngle: 90,
+          pointer: {
+            showAbove: true,
+            length: '80%',
+            width: 3,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 100,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 1
+            }
+          },
+          data: [{
+            title: {
+              show: true,
+              offsetCenter: [0, '-20%'],
+              fontSize: 10
+            },
+            value: '30',
+            name: 'meter',
+            detail: {
+              show: true,
+              fontSize: 15,
+              width: 25,
+              height: 15,
+              backgroundColor: 'transparent'
+            }
+          }]
         }]
-      }]
-    },
-    {
-      backgroundColor: "#ffffff",
-      series: [{
-        name: '业务指标',
-        zlevel: -1,
-        progress: {
-          show: false,
-          width: 5,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 5,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 0.5
+      },
+      {
+        backgroundColor: "#ffffff",
+        series: [{
+          name: '业务指标',
+          zlevel: -1,
+          progress: {
+            show: false,
+            width: 5,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 5,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 0.5
+            },
           },
-        },
-        type: 'gauge',
-        detail: {
-          formatter: '{value}'
-        },
-        axisLine: {
-          lineStyle: {
-            width: 25,
-            color: [
-              [0.1, 'yellow'],
-              [0.9, 'green'],
-              [1.0, 'red']
-            ],
-            opacity: 0.5
-          },
-          show: true
-        },
-        axisTick: {
-          show: true,
-          distance: -10
-        },
-        splitLine: {
-          show: true,
-          distance: -6,
-          length: '10%',
-          lineStyle: {
-            width: 1
-          }
-        },
-        axisLabel: {
-          distance: 2,
-          textStyle: {
-            fontSize: 8
-          }
-        },
-        radius: '100%',
-        startAngle: -135,
-        endAngle: -45,
-        pointer: {
-          showAbove: true,
-          length: '80%',
-          width: 3,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 100,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 1
-          }
-        },
-        data: [{
-          title: {
-            show: true,
-            offsetCenter: [0, '-20%'],
-            fontSize: 15
-          },
-          value: '30',
-          name: 'meter',
+          type: 'gauge',
           detail: {
+            formatter: '{value}'
+          },
+          axisLine: {
+            lineStyle: {
+              width: 25,
+              color: [
+                [0.1, 'yellow'],
+                [0.9, 'green'],
+                [1.0, 'red']
+              ],
+              opacity: 0.5
+            },
+            show: true
+          },
+          axisTick: {
             show: true,
-            fontSize: 20,
-            width: 25,
-            height: 15,
-            backgroundColor: 'transparent'
-          }
+            distance: -10
+          },
+          splitLine: {
+            show: true,
+            distance: -6,
+            length: '10%',
+            lineStyle: {
+              width: 1
+            }
+          },
+          axisLabel: {
+            distance: 2,
+            textStyle: {
+              fontSize: 8
+            }
+          },
+          radius: '100%',
+          startAngle: -135,
+          endAngle: -45,
+          pointer: {
+            showAbove: true,
+            length: '80%',
+            width: 3,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 100,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 1
+            }
+          },
+          data: [{
+            title: {
+              show: true,
+              offsetCenter: [0, '-20%'],
+              fontSize: 15
+            },
+            value: '30',
+            name: 'meter',
+            detail: {
+              show: true,
+              fontSize: 20,
+              width: 25,
+              height: 15,
+              backgroundColor: 'transparent'
+            }
+          }]
         }]
-      }]
-    },
-    {
-      backgroundColor: "#ffffff",
-      series: [{
-        name: '业务指标',
-        zlevel: -1,
-        progress: {
-          show: false,
-          width: 5,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 5,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 0.5
+      },
+      {
+        backgroundColor: "#ffffff",
+        series: [{
+          name: '业务指标',
+          zlevel: -1,
+          progress: {
+            show: false,
+            width: 5,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 5,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 0.5
+            },
           },
-        },
-        type: 'gauge',
-        detail: {
-          formatter: '{value}'
-        },
-        axisLine: {
-          lineStyle: {
-            width: 25,
-            color: [
-              [0.1, 'yellow'],
-              [0.9, 'green'],
-              [1.0, 'red']
-            ],
-            opacity: 0.5
-          },
-          show: true
-        },
-        axisTick: {
-          show: true,
-          distance: -10
-        },
-        splitLine: {
-          show: true,
-          distance: -6,
-          length: '10%',
-          lineStyle: {
-            width: 1
-          }
-        },
-        axisLabel: {
-          distance: 3,
-          textStyle: {
-            fontSize: 8
-          }
-        },
-        radius: '100%',
-        startAngle: 0,
-        endAngle: 360,
-        clockwise: false,
-        pointer: {
-          showAbove: true,
-          length: '80%',
-          width: 3,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 100,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 1
-          }
-        },
-        data: [{
-          title: {
-            show: true,
-            offsetCenter: [0, '-20%'],
-            fontSize: 15
-          },
-          value: '30',
-          name: 'meter',
+          type: 'gauge',
           detail: {
+            formatter: '{value}'
+          },
+          axisLine: {
+            lineStyle: {
+              width: 25,
+              color: [
+                [0.1, 'yellow'],
+                [0.9, 'green'],
+                [1.0, 'red']
+              ],
+              opacity: 0.5
+            },
+            show: true
+          },
+          axisTick: {
             show: true,
-            fontSize: 20,
-            width: 25,
-            height: 15,
-            backgroundColor: 'transparent'
-          }
+            distance: -10
+          },
+          splitLine: {
+            show: true,
+            distance: -6,
+            length: '10%',
+            lineStyle: {
+              width: 1
+            }
+          },
+          axisLabel: {
+            distance: 3,
+            textStyle: {
+              fontSize: 8
+            }
+          },
+          radius: '100%',
+          startAngle: 0,
+          endAngle: 360,
+          clockwise: false,
+          pointer: {
+            showAbove: true,
+            length: '80%',
+            width: 3,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 100,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 1
+            }
+          },
+          data: [{
+            title: {
+              show: true,
+              offsetCenter: [0, '-20%'],
+              fontSize: 15
+            },
+            value: '30',
+            name: 'meter',
+            detail: {
+              show: true,
+              fontSize: 20,
+              width: 25,
+              height: 15,
+              backgroundColor: 'transparent'
+            }
+          }]
         }]
-      }]
-    },
-    {
-      backgroundColor: "#ffffff",
-      series: [{
-        name: '业务指标',
-        zlevel: -1,
-        progress: {
-          show: true,
-          width: 5,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 5,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 0.5
-          },
-        },
-        type: 'gauge',
-        center:['50%','20%'],
-        detail: {
-          formatter: '{value}'
-        },
-        axisLine: {
-          lineStyle: {
-            width: 25,
-            color: [
-              [0.1, 'yellow'],
-              [0.3, '#66CD00'],
-              [0.6, '#C0FF3E'],
-              [0.8, 'green'],
-              [1.0, 'red']
-            ],
-            opacity: 0.5
-          },
-          show: true
-        },
-        axisTick: {
-          show: true
-        },
-        splitLine: {
-          show: true,
-          distance: 6,
-          length: '10%',
-          lineStyle: {
-            width: 1
-          }
-        },
-        axisLabel: {
-          distance: -10,
-          textStyle: {
-            fontSize: 10
-          }
-        },
-        radius: '100%',
-        startAngle: 180,
-        endAngle: 0,
-        clockwise: false,
-        pointer: {
-          showAbove: true,
-          length: '80%',
-          width: 3,
-          itemStyle: {
-            shadowColor: 'rgba(0,0,0,0.5)',
-            shadowBlur: 100,
-            shadowOffsetX: 1,
-            shadowOffsetY: -1,
-            opacity: 1
-          }
-        },
-        data: [{
-          title: {
+      },
+      {
+        backgroundColor: "#ffffff",
+        series: [{
+          name: '业务指标',
+          zlevel: -1,
+          progress: {
             show: true,
-            offsetCenter: [0, '-20%'],
-            fontSize: 15
+            width: 5,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 5,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 0.5
+            },
           },
-          value: '30',
-          name: 'meter',
+          type: 'gauge',
+          center: ['50%', '20%'],
           detail: {
+            formatter: '{value}'
+          },
+          axisLine: {
+            lineStyle: {
+              width: 25,
+              color: [
+                [0.1, 'yellow'],
+                [0.3, '#66CD00'],
+                [0.6, '#C0FF3E'],
+                [0.8, 'green'],
+                [1.0, 'red']
+              ],
+              opacity: 0.5
+            },
+            show: true
+          },
+          axisTick: {
+            show: true
+          },
+          splitLine: {
             show: true,
-            fontSize: 20,
-            width: 25,
-            height: 15,
-            backgroundColor: 'transparent'
-          }
+            distance: 6,
+            length: '10%',
+            lineStyle: {
+              width: 1
+            }
+          },
+          axisLabel: {
+            distance: -10,
+            textStyle: {
+              fontSize: 10
+            }
+          },
+          radius: '100%',
+          startAngle: 180,
+          endAngle: 0,
+          clockwise: false,
+          pointer: {
+            showAbove: true,
+            length: '80%',
+            width: 3,
+            itemStyle: {
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 100,
+              shadowOffsetX: 1,
+              shadowOffsetY: -1,
+              opacity: 1
+            }
+          },
+          data: [{
+            title: {
+              show: true,
+              offsetCenter: [0, '-20%'],
+              fontSize: 15
+            },
+            value: '30',
+            name: 'meter',
+            detail: {
+              show: true,
+              fontSize: 20,
+              width: 25,
+              height: 15,
+              backgroundColor: 'transparent'
+            }
+          }]
         }]
-      }]
-    }
+      }
     ],
     deviceName: '', // 修改为实际访问的设备名称
     onlineDevicesName: []
@@ -627,6 +629,7 @@ Page({
       this.onShow()
     }
   },
+  
   init() {
     for (let i = 0; i < variableName.length; i++) {
       this.data.canvasId.push("canvansId" + i)
