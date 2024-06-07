@@ -1,0 +1,30 @@
+<view class="title">
+  <view class="title_text">
+    <label class="cell_left">IoT实例 Id：</label>
+    <input class="cell_right" id="iotinstance" bindinput="getid" placeholder="输入iot实例id"></input>
+  </view>
+  <view class="title_text">
+    <label class="cell_left">accessKey Id：</label>
+    <input class="cell_right" id="accessKey" bindinput="getid"  placeholder="输入accessKey Id" />
+  </view>
+  <view class="title_text">
+    <label class="cell_left">accessKey Secret：</label>
+    <input class="cell_right" id="secret" bindinput="getid" placeholder="输入accessKey Secret" />
+  </view>
+  <view class="title_text">
+    <label class="cell_left">endpoint URL：</label>
+    <input class="cell_right" id="endpoint" bindinput="getid" placeholder="https://iot.cn-shanghai.aliyuncs.com" />
+  </view>
+  <view class="title_text">
+    <label class="cell_left">产品名称 ：</label>
+    <input class="cell_right" id="productName" bindinput="getid" placeholder="输入产品名称" />
+  </view>
+</view>
+<view class="container">
+  <button class="item" type="primary" bindtap="connect">
+    <text class="font">连 接</text></button>      
+</view>
+<view class="button">
+    <button class="item" type="primary" bindtap="login">
+    <text class="font">返 回</text></button>    
+</view>

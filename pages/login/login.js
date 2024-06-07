@@ -54,6 +54,12 @@ Page({
             })
         }
     }, 
+
+    register() {
+      wx.navigateTo({
+        url: '/pages/register/register',
+      })
+    },
     onShow() {
         wx.setNavigationBarTitle({
             title: "欢迎登录 Logo！设备监控小程序",

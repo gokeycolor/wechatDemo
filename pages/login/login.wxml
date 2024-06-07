@@ -10,5 +10,9 @@
 </view>
 <view class="container">
   <button class="item" type="primary" bindtap="login">
-    <text class="font">登 录</text></button>
+    <text class="font">登 录</text></button>      
+</view>
+<view class="button">
+    <button class="item" type="primary" bindtap="register">
+    <text class="font">设 置</text></button>    
 </view>

@@ -10,6 +10,13 @@
         "miniprogram": {
             "list": [
                 {
+                    "name": "pages/register/register",
+                    "pathName": "pages/register/register",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
                     "name": "pages/guage/guage",
                     "pathName": "pages/guage/guage",
                     "query": "app.currentDevice.name='motorA'",
