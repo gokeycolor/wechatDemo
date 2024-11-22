@@ -1,7 +1,7 @@
 #### 扫描二维码
 ![image](https://github.com/gokeycolor/wechatDemo/blob/main/images/code.jpg)
-账号：admin
-密码：logo
+##### 账号：admin
+##### 密码：logo
 ```
 实例化Client类必须提供以下参数
 iotInstanceId:    阿里云物联网平台实例ID
