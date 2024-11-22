@@ -280,12 +280,12 @@ productName 和 productKey 二选一，优先选择productKey
 
 例如
 new Client({
-            accessKeyId: 实际的accessKeySecret,
+            accessKeyId:     实际的accessKeySecret,
             accessKeySecret: 实际的accessKeyId,
-            iotInstanceId: 实际的阿里云物联网平台实例id,            
-            productKey: 实际的productKey,
-            endpoint: 'https://iot.cn-shanghai.aliyuncs.com', 
-            apiVersion: '2018-01-20'  
+            iotInstanceId:   实际的阿里云物联网平台实例id,            
+            productKey:      实际的productKey,
+            endpoint:        'https://iot.cn-shanghai.aliyuncs.com', 
+            apiVersion:      '2018-01-20'  
         })
 */
 
