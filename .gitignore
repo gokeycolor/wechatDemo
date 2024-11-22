@@ -15,5 +15,4 @@ node_modules/
 
 app.js
 project.config.json
-app.js
-project.config.json
+project.private.config.json
