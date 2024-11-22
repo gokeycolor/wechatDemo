@@ -8,13 +8,15 @@ endpoint:         产品部署的区域节点
 apiVersion：      API版本号
                   https://help.aliyun.com/zh/iot/developer-reference/common-parameters?spm=a2c4g.11186623.0.0.587173c1NvcOuJ
 productName：     产品名称，在创建产品时输入的名称
+productKey：      产品密钥，在创建产品时自动生成
+productName 和 productKey 二选一，优先选择productKey
 */
 const iotInstanceId = ''        //输入实际的阿里云物联网平台实例id
 const accessKeyId = ''          // 输入实际的accessKeyId
 const accessKeySecret = ''      //输入实际的accessKeySecret
 const endpoint = 'https://iot.cn-shanghai.aliyuncs.com' //cn-shanghai 替换为实际部署的区域节点
 const apiVersion = '2018-01-20'
-const productName =  ''         //修改为实际的产品名称
+const productKey = ''    //修改为实际的productKey
 
 var Client = require('utils/rpc');
 App({
@@ -30,7 +32,7 @@ App({
             accessKeyId: accessKeyId,
             accessKeySecret: accessKeySecret,
             iotInstanceId: iotInstanceId,
-            productName: productName,
+            productKey: productName,
             endpoint: endpoint, 
             apiVersion: apiVersion  
         });
