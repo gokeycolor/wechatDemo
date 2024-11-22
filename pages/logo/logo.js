@@ -160,14 +160,12 @@ Page({
         intervalTime: lastValue
       });
     } else {
-      if (this.timer) {
-        clearInterval(this.timer)
-      }
       this.data.intervalTime = sampleTime
       this.setData({
         intervalTime: sampleTime
       })
       this.getData(this.data.deviceName)
+      console.log('sampletime',sampleTime)
       this.timer = setInterval(() => {
         this.getData(this.data.deviceName)
       }, sampleTime * 1000)
