@@ -1,5 +1,6 @@
 'use strict';
 const crypto = require('crypto-js')
+
 // base64
 function stringify(wordArray) {
     // Shortcuts
@@ -144,17 +145,11 @@ function canonicalize(normalized) {
 
 class RPCClient {
     constructor(config, verbose) {
-        // assert(config, 'must pass "config"');
-        // assert(config.endpoint, 'must pass "config.endpoint"');
         if (!config.endpoint.startsWith('https://') &&
             !config.endpoint.startsWith('http://')) {
             throw new Error(`"config.endpoint" must starts with 'https://' or 'http://'.`);
         }
-        // assert(config.apiVersion, 'must pass "config.apiVersion"');
-        // assert(config.accessKeyId, 'must pass "config.accessKeyId"');
         var accessKeySecret = config.secretAccessKey || config.accessKeySecret;
-        // assert(accessKeySecret, 'must pass "config.accessKeySecret"');
-
 
         if (config.endpoint.endsWith('/')) {
             config.endpoint = config.endpoint.slice(0, -1);
@@ -209,6 +204,7 @@ class RPCClient {
         // 2.2 get signature
         const key = this.accessKeySecret + '&';
         const signature = stringify(crypto.HmacSHA1(stringToSign, key))
+    
         // add signature
         normalized.push(['Signature', encode(signature)]);
         // 3. generate final url
@@ -270,28 +266,55 @@ class RPCClient {
 // openapi-core-nodejs-sdk/lib/rpc.js
 //*****************************************************************
 // 在下面增加自己的代码
+/* 实例化Client类必须提供以下参数
+iotInstanceId:    阿里云物联网平台实例ID
+accessKeyId:      阿里云RAM账号 accessKeyId
+accessKeySecret： 阿里云RAM账号 accessKeySecret
+endpoint:         产品部署的区域节点  
+                  https://help.aliyun.com/zh/iot/product-overview/supported-regions
+apiVersion：      API版本号
+                  https://help.aliyun.com/zh/iot/developer-reference/common-parameters?spm=a2c4g.11186623.0.0.587173c1NvcOuJ
+productName：     产品名称，在创建产品时输入的名称
+productKey：      产品密钥，在创建产品时自动生成
+productName 和 productKey 二选一，优先选择productKey
 
-
+例如
+new Client({
+            accessKeyId: 实际的accessKeySecret,
+            accessKeySecret: 实际的accessKeyId,
+            iotInstanceId: 实际的阿里云物联网平台实例id,            
+            productKey: 实际的productKey,
+            endpoint: 'https://iot.cn-shanghai.aliyuncs.com', 
+            apiVersion: '2018-01-20'  
+        })
+*/
 
 class Client extends RPCClient {
     constructor(config, verbose) {
-        super(config, verbose);
-        this.iotInstanceId = config.iotInstanceId;
-        this.productName = config.productName
+        super(config, verbose); 
+        this.iotInstanceId = config.iotInstanceId;                        
         this.params = {
-            ProductName : this.productName,
             CurrentPage : 1,
             PageSize : 3,
             IotInstanceId: this.iotInstanceId
         };
+        if (config.hasOwnProperty('productKey') && config.ProductKey !== '') {
+          this.params.ProductKey = config.productKey
+        }
+        else {
+          this.params.ProductName = config.productName
+        }
         this.requestOption = {
             method: 'POST',
             timeout: 3000
         }
-        this.initialize(this.params)
+        this.initialize(this.params)      
     }
 
     initialize(){
+      if (this.params.hasOwnProperty('ProductKey') && this.params.ProductKey !== '') {
+        return;
+      }
       return this.request('QueryProductList', this.params, this.requestOption)
           .then(res => {
             if (res.Success) {
@@ -299,11 +322,11 @@ class Client extends RPCClient {
                 for (let index=0; index < ProductInfos.length; index++ )
                 {
                   let productInfo = ProductInfos[index]
-                  console.log()
+                  
                   if( productInfo.ProductName == this.params.ProductName) {                    
                     this.params = {}
-                    this.params.iotInstanceId = this.iotInstanceId
-                    this.params.ProductKey = productInfo.ProductKey
+                    this.params.IotInstanceId = this.iotInstanceId
+                    this.params.ProductKey = productInfo.ProductKey                        
                     return
                   }
                 }
@@ -394,9 +417,10 @@ class Client extends RPCClient {
     queryDevices() {
         let devices = []
         this.params.CurrentPage = 1
+        console.log("queryDevices",this.params)
         return this._queryDevice(this.params, devices)
                 .then(res => {
-                    // console.log("queryDevices",res)
+                    console.log("queryDevices",res)
                     return res
                 }).catch(err => {
                     console.error(err)
